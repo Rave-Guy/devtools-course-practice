@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2020 Suchkov Makar
 
 #include <gtest/gtest.h>
 
@@ -7,7 +7,7 @@
 #include "include/chezar.h"
 
 
-TEST_F(ChezarTest, Encrypt_Simple) {
+TEST(Suchkov_Makar_ChezarTest, Encrypt_Simple) {
     // Arrange
     string a = "abcd";
 
@@ -18,7 +18,7 @@ TEST_F(ChezarTest, Encrypt_Simple) {
     EXPECT_EQ(b, "bcde");
 }
 
-TEST_F(ChezarTest, Decrypt_Simple) {
+TEST((Suchkov_Makar_ChezarTest, Decrypt_Simple) {
     // Arrange
     string a = "bcde";
 
