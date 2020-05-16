@@ -6,10 +6,6 @@ Chezar::Chezar() {
 
 }
 
-Chezar::Chezar(std::string msg) {
-    this->SetStr(msg);
-}
-
 Chezar::Chezar(std::string msg, int key) {
     this->SetStr(msg);
     this->key = key;

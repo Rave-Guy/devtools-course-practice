@@ -9,7 +9,6 @@
 class Chezar {
  public:
     Chezar();
-    Chezar(std::string msg);
     Chezar(std::string msg, int key);
     ~Chezar();
     std::string GetStr();
