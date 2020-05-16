@@ -36,9 +36,8 @@ int Chezar::GetKey() {
 }
 
 bool Chezar::Encrypt() {
-    char ch;
     for (unsigned int i = 0; msg[i] != '\0'; ++i) {
-        ch = msg[i];
+        char ch = msg[i];
         if (ch >= 'a' && ch <= 'z') {
            ch = ch + (key % 26);
            if (ch > 'z') {
@@ -58,20 +57,19 @@ bool Chezar::Encrypt() {
 }
 
 bool Chezar::Decrypt() {
-    char ch;
     for (unsigned int i = 0; msg[i] != '\0'; ++i) {
-       ch = msg[i];
+       char ch = msg[i];
        if (ch >= 'a' && ch <= 'z') {
            ch = ch - (key % 26);
            if (ch < 'a') {
                 ch = ch + 'z' - 'a' + 1;
-           }
+            }
            msg[i] = ch;
        } else if (ch >= 'A' && ch <= 'Z') {
            ch = ch - (key % 26);
-           if (ch < 'A') {
-               ch = ch + 'Z' - 'A' + 1;
-           }
+           if (ch < 'A') 
+                ch = ch + 'Z' - 'A' + 1;
+            }
            msg[i] = ch;
        }
     }
