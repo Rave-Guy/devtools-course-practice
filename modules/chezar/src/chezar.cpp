@@ -2,14 +2,10 @@
 
 #include "include/chezar.h"
 
-#include <stdbool.h>
-#include <string>
-#include <limits>
-
-string Encrypt(string msg, int key)
+char* Encrypt(char* msg, int key)
 {
     char ch;
-    for(int i = 0; msg[i] != '\0'; ++i) 
+    for(int i = 0; msg[i] != '\0'; ++i)
     {
         ch = msg[i];
         //encrypt for lowercase letter
@@ -18,7 +14,7 @@ string Encrypt(string msg, int key)
            ch = ch + key;
            if (ch > 'z') {
               ch = ch - 'z' + 'a' - 1;
-           }  
+           }
            msg[i] = ch;
        }
         //encrypt for uppercase letter
@@ -34,14 +30,14 @@ string Encrypt(string msg, int key)
     return msg;
 }
 
-string Decrypt(string msg, int key)
+char* Decrypt(char* msg, int key)
 {
     char ch;
-    for(int i = 0; msg[i] != '\0'; ++i) 
+    for(int i = 0; msg[i] != '\0'; ++i)
     {
        ch = msg[i];
        //decrypt for lowercase letter
-       if(ch >= 'a' && ch <= 'z') 
+       if(ch >= 'a' && ch <= 'z')
        {
            ch = ch - key;
            if(ch < 'a'){
@@ -50,7 +46,7 @@ string Decrypt(string msg, int key)
             msg[i] = ch;
         }
        //decrypt for uppercase letter
-       else if(ch >= 'A' && ch <= 'Z') 
+       else if(ch >= 'A' && ch <= 'Z')
        {
           ch = ch - key;
           if(ch < 'A') {
@@ -58,6 +54,6 @@ string Decrypt(string msg, int key)
            }
           msg[i] = ch;
        }
-    
+    }
     return msg;
 }

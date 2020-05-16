@@ -9,22 +9,33 @@
 
 TEST(Suchkov_Makar_ChezarTest, Encrypt_Simple) {
     // Arrange
-    string a = "abcd";
+    char a[] = "abcd";
 
     // Act
-    string b = Encrypt(a, 1);
+    char *b = Encrypt(a, 1);
 
     // Assert
     EXPECT_EQ(b, "bcde");
 }
 
-TEST((Suchkov_Makar_ChezarTest, Decrypt_Simple) {
+TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
     // Arrange
-    string a = "bcde";
+    char a[] = "bcde";
 
     // Act
-    string b = Decrypt(a, 1);
+    char *b = Decrypt(a, 1);
 
     // Assert
     EXPECT_EQ(b, "abcd");
+}
+
+
+TEST(Suchkov_Makar_ChezarTest, Decrypt_Encrypt_Simple) {
+    // Arrange
+    char a[] = "abcdefghijklmnopqrstuvwxyz";
+
+    // Act
+    
+    // Assert
+    EXPECT_EQ(Encrypt(a, 5),  Decrypt(a, 5));
 }
