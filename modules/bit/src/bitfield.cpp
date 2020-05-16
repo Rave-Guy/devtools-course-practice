@@ -8,7 +8,7 @@
 
 Bitfield::Bitfield(unsigned int size) {
     bitfield_size = size;
-
+    
     unsigned int quotient = size / UNSIGNED_CHAR_SIZE;
     unsigned int remainder = size % UNSIGNED_CHAR_SIZE;
     
