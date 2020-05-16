@@ -7,7 +7,7 @@
 #include <string>
 
 class Chezar {
-public:
+ public:
     Chezar();
     Chezar(std::string msg);
     Chezar(std::string msg, int key);
@@ -19,8 +19,7 @@ public:
     bool isEncrypt();
     bool Decrypt();
     bool Encrypt();
-
-private:
+ private:
     std::string msg;
     int key = 0;
     bool is_e;
