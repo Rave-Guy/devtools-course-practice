@@ -17,7 +17,7 @@ TEST(Suchkov_Makar_ChezarTest, Encrypt_Simple) {
 TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
     // Arrange
     char a[] = "bcde";
-    
+
     // Act
 
     // Assert
