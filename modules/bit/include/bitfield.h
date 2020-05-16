@@ -1,7 +1,7 @@
 // Copyright 2020 Suchkov Makar
 
-#ifndef MODULES_BITFIELD_INCLUDE_BITFIELD_H_
-#define MODULES_BITFIELD_INCLUDE_BITFIELD_H_
+#ifndef MODULES_BIT_INCLUDE_BITFIELD_H_
+#define MODULES_BIT_INCLUDE_BITFIELD_H_
 
 #include <vector>
 
@@ -45,4 +45,4 @@ class Bitfield {
   int operator[](unsigned int position) const;
 };
 
-#endif  // MODULES_BITFIELD_INCLUDE_BITFIELD_H_
+#endif  // MODULES_BIT_INCLUDE_BITFIELD_H_
