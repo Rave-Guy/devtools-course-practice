@@ -4,7 +4,6 @@
 
 #include "include/chezar.h"
 
-
 TEST(Suchkov_Makar_ChezarTest, Encrypt_Simple) {
     // Arrange
     char a[] = "abcd";
@@ -21,11 +20,9 @@ TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
 
     // Act
     
-
     // Assert
     ASSERT_STRCASEEQ(Decrypt(a, 1), "abcd");
 }
-
 
 TEST(Suchkov_Makar_ChezarTest, Decrypt_Encrypt_Simple) {
     // Arrange
