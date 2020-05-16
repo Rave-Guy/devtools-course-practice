@@ -15,7 +15,7 @@ TEST(Suchkov_Makar_ChezarTest, Encrypt_Simple) {
     char *b = Encrypt(a, 1);
 
     // Assert
-    ASSERT_STRCASENE(Encrypt(a, 1), "bcde");
+    ASSERT_STRCASEEQ(Encrypt(a, 1), "bcde");
 }
 
 TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
@@ -26,7 +26,7 @@ TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
     
 
     // Assert
-    ASSERT_STRCASENE(Decrypt(a, 1), "abcd");
+    ASSERT_STRCASEEQ(Decrypt(a, 1), "abcd");
 }
 
 
@@ -37,5 +37,5 @@ TEST(Suchkov_Makar_ChezarTest, Decrypt_Encrypt_Simple) {
     // Act
     
     // Assert
-    ASSERT_STRCASENE(Encrypt(a, 5),  Decrypt(a, 5));
+    ASSERT_STRCASEEQ(Encrypt(a, 5),  Decrypt(a, 5));
 }
