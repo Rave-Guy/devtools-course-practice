@@ -4,24 +4,23 @@
 #define MODULES_CHEZAR_INCLUDE_CHEZAR_H_
 
 #include <iostream>
-#include <string>
 
 class Chezar {
  public:
     Chezar();
-    Chezar(std::string msg, int key);
+    Chezar(char *str, int key);
     ~Chezar();
-    std::string GetStr();
-    bool SetStr(std::string str);
+    char* GetStr();
+    bool SetStr(char* str);
     bool SetKey(int key);
     int GetKey();
     bool isEncrypt();
     bool Decrypt();
     bool Encrypt();
  private:
-    std::string msg;
+    char* msg;
     int key = 0;
-    bool is_e = false;
+    bool is_e;
 };
 
 #endif  // MODULES_CHEZAR_INCLUDE_CHEZAR_H_

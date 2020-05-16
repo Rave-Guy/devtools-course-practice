@@ -7,7 +7,6 @@
 TEST(Suchkov_Makar_ChezarTest, Can_Add_key_Data) {
     // Arrange
     Chezar estr;
-    std::string a;
     int key;
     // Act
     key = 1;
@@ -18,10 +17,9 @@ TEST(Suchkov_Makar_ChezarTest, Can_Add_key_Data) {
 TEST(Suchkov_Makar_ChezarTest, Can_Add_str_Data) {
     // Arrange
     Chezar estr;
-    std::string a;
-    int key;
+    char a[] = "abcd";
     // Act
-    a = "abcd";
+
     // Assert
     EXPECT_TRUE(estr.SetStr(a));
 }
@@ -29,8 +27,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Add_str_Data) {
 TEST(Suchkov_Makar_ChezarTest, Can_Get_str_Data) {
     // Arrange
     Chezar estr;
-    std::string a;
-    int key;
+    char a[] = "abcd";
     // Act
     estr.SetStr(a);
     // Assert
@@ -40,7 +37,6 @@ TEST(Suchkov_Makar_ChezarTest, Can_Get_str_Data) {
 TEST(Suchkov_Makar_ChezarTest, Can_Get_key_Data) {
     // Arrange
     Chezar estr;
-    std::string a;
     int key = 1488;
     // Act
     estr.SetKey(key);
@@ -50,7 +46,8 @@ TEST(Suchkov_Makar_ChezarTest, Can_Get_key_Data) {
 
 TEST(Suchkov_Makar_ChezarTest, Can_Encrypt_Data) {
     // Arrange
-    Chezar estr("abcdefghijklmnopqrstuvwxyz", 1488);
+    char a[] = "abcdefghijklmnopqrstuvwxyz";
+    Chezar estr(a, 1488);
     // Act
     estr.Encrypt();
     // Assert
@@ -59,7 +56,8 @@ TEST(Suchkov_Makar_ChezarTest, Can_Encrypt_Data) {
 
 TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Data) {
     // Arrange
-    Chezar estr("abcdefghijklmnopqrstuvwxyz", 1488);
+    char a[] = "abcdefghijklmnopqrstuvwxyz";
+    Chezar estr(a, 1488);
     // Act
     estr.Decrypt();
     // Assert
@@ -68,20 +66,22 @@ TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Data) {
 
 TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Data) {
     // Arrange
-    Chezar estr("abcdefghijklmnopqrstuvwxyz", 1488);
+    char a[] = "abcdefghijklmnopqrstuvwxyz";
+    Chezar estr(a, 1488);
     // Act
     estr.Encrypt();
-    std::string z = "ghijklmnopqrstuvwxyzabcde";
+    char z[] = "ghijklmnopqrstuvwxyzabcde";
     // Assert
     ASSERT_STRCASEEQ(z, estr.GetStr());
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_again_Data) {
     // Arrange
-    Chezar estr("ghijklmnopqrstuvwxyzabcde", 1488);
+    char a[] = "ghijklmnopqrstuvwxyzabcde";
+    Chezar estr(a, 1488);
     // Act
     estr.Decrypt();
-    std::string z = "abcdefghijklmnopqrstuvwxy";
+    char z[] = "abcdefghijklmnopqrstuvwxy";
     // Assert
     ASSERT_STRCASEEQ(z, estr.GetStr());
 }

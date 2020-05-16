@@ -6,8 +6,8 @@ Chezar::Chezar() {
 
 }
 
-Chezar::Chezar(std::string msg, int key) {
-    this->SetStr(msg);
+Chezar::Chezar(char *str, int key) {
+    this->msg = str;
     this->key = key;
 }
 
@@ -20,12 +20,12 @@ bool Chezar::SetKey(int key) {
     return true;
 }
 
-bool Chezar::SetStr(std::string str) {
+bool Chezar::SetStr(char* str) {
     this->msg = str;
     return true;
 }
 
-std::string Chezar::GetStr() {
+char* Chezar::GetStr() {
     return msg;
 }
 
@@ -39,8 +39,8 @@ int Chezar::GetKey() {
 
 bool Chezar::Encrypt() {
     char ch;
-    for (unsigned int i = 0; msg.c_str()[i] != '\0'; ++i) {
-        ch = msg.c_str()[i];
+    for (unsigned int i = 0; msg[i] != '\0'; ++i) {
+        ch = msg[i];
         if (ch >= 'a' && ch <= 'z') {
            ch = ch + (key % 26);
            if (ch > 'z') {
@@ -61,8 +61,8 @@ bool Chezar::Encrypt() {
 
 bool Chezar::Decrypt() {
     char ch;
-    for (unsigned int i = 0; msg.c_str()[i] != '\0'; ++i) {
-       ch = msg.c_str()[i];
+    for (unsigned int i = 0; msg[i] != '\0'; ++i) {
+       ch = msg[i];
        if (ch >= 'a' && ch <= 'z') {
            ch = ch - (key % 26);
            if (ch < 'a') {
