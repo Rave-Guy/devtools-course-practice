@@ -12,7 +12,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Add_key_Data) {
     // Act
     key = 1;
     // Assert
-    EXPECT_EQ(true, estr.SetKey(key));
+    EXPECT_TRUE(estr.SetKey(key));
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Add_str_Data) {
@@ -23,7 +23,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Add_str_Data) {
     // Act
     a = "abcd";
     // Assert
-    EXPECT_EQ(true, estr.SetStr(a));
+    EXPECT_TRUE(estr.SetStr(a));
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Get_str_Data) {
@@ -34,7 +34,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Get_str_Data) {
     // Act
     estr.SetStr(a);
     // Assert
-    EXPECT_EQ(true, estr.GetStr());
+    EXPECT_TRUE(estr.GetStr());
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Get_key_Data) {
@@ -45,7 +45,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Get_key_Data) {
     // Act
     estr.SetKey(key);
     // Assert
-    EXPECT_EQ(key, estr.GetKey());
+    EXPECT_TRUE(estr.GetKey());
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Encrypt_Data) {
