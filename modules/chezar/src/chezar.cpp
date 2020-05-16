@@ -7,13 +7,13 @@ char* Encrypt(char* msg, char key) {
     for (int i = 0; msg[i] != '\0'; ++i) {
         ch = msg[i];
         if (ch >= 'a' && ch <= 'z') {
-           ch = ch + key;
+           ch = ch + (key % 26);
            if (ch > 'z') {
               ch = ch - 'z' + 'a' - 1;
            }
            msg[i] = ch;
         } else if (ch >= 'A' && ch <= 'Z') {
-           ch = ch + key;
+           ch = ch + (key % 26);
            if (ch > 'Z') {
                ch = ch - 'Z' + 'A' - 1;
            }
@@ -28,13 +28,13 @@ char* Decrypt(char* msg, char key) {
     for (int i = 0; msg[i] != '\0'; ++i) {
        ch = msg[i];
        if (ch >= 'a' && ch <= 'z') {
-           ch = ch - key;
+           ch = ch - (key % 26);
            if (ch < 'a') {
                 ch = ch + 'z' - 'a' + 1;
            }
            msg[i] = ch;
        } else if (ch >= 'A' && ch <= 'Z') {
-           ch = ch - key;
+           ch = ch - (key % 26);
            if (ch < 'A') {
                ch = ch + 'Z' - 'A' + 1;
            }
