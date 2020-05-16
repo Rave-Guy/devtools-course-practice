@@ -76,7 +76,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Data) {
     ASSERT_STRCASEEQ(z, estr.GetStr());
 }
 
-TEST(Suchkov_Makar_ChezarTest, Can_Crypt_again_Data) {
+TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_again_Data) {
     // Arrange
     Chezar estr("ghijklmnopqrstuvwxyzabcde", 1488);
     // Act

@@ -21,7 +21,7 @@ class Chezar {
  private:
     std::string msg;
     int key = 0;
-    bool is_e;
+    bool is_e = false;
 };
 
 #endif  // MODULES_CHEZAR_INCLUDE_CHEZAR_H_
