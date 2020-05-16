@@ -70,7 +70,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Data) {
     Chezar estr(a, 1488);
     // Act
     estr.Encrypt();
-    char z[] = "ghijklmnopqrstuvwxyzabcde";
+    char z[] = "ghijklmnopqrstuvwxyzabcde\x80";
     // Assert
     ASSERT_STRCASEEQ(z, estr.GetStr());
 }
