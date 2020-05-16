@@ -54,7 +54,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Encrypt_Data) {
     // Act
     estr.Encrypt();
     // Assert
-    EXPECT_EQ(true, estr.isEncrypt());
+    EXPECT_TRUE(estr.isEncrypt());
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Data) {
@@ -63,23 +63,25 @@ TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Data) {
     // Act
     estr.Decrypt();
     // Assert
-    EXPECT_EQ(false, estr.isEncrypt());
+    EXPECT_FALSE(estr.isEncrypt());
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Data) {
     // Arrange
     Chezar estr("abcdefghijklmnopqrstuvwxyz", 1488);
     // Act
-    estr.Encrypt();    
+    estr.Encrypt();
+    std::string z = "ghijklmnopqrstuvwxyzabcde";
     // Assert
-    ASSERT_STRCASEEQ("ghijklmnopqrstuvwxyzabcde", estr.GetStr());
+    ASSERT_STRCASEEQ(z, estr.GetStr());
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Crypt_again_Data) {
     // Arrange
     Chezar estr("ghijklmnopqrstuvwxyzabcde", 1488);
     // Act
-    estr.Decrypt();    
+    estr.Decrypt();
+    std::string z = "abcdefghijklmnopqrstuvwxy";
     // Assert
-    ASSERT_STRCASEEQ("abcdefghijklmnopqrstuvwxy", estr.GetStr());
+    ASSERT_STRCASEEQ(z, estr.GetStr());
 }
