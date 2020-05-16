@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
-
 #include "include/chezar.h"
 
 int main(int argc, const char** argv) {
