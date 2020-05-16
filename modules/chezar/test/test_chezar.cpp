@@ -67,10 +67,10 @@ TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Data) {
 TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Data) {
     // Arrange
     char a[] = "abcdefghijklmnopqrstuvwxyz";
-    Chezar estr(a, 1488);
+    Chezar estr(a, 3);
     // Act
     estr.Encrypt();
-    char z[] = "ghijklmnopqrstuvwxyzabcde\x80";
+    char z[] = "defghijklmnopqrstuvwxyzabc";
     // Assert
     ASSERT_STRCASEEQ(z, estr.GetStr());
 }
