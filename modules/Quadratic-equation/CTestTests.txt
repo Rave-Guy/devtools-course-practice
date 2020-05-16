@@ -1,0 +1,61 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a equation calculator"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} 1 ip 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Equat_Two_Roots
+    COMMAND ${APPLICATION} 1 4 5
+)
+set_tests_properties (${prefix}_can_Equat_Two_Roots PROPERTIES
+    PASS_REGULAR_EXPRESSION "This equation have two roots!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Equat_One_Root
+    COMMAND ${APPLICATION} 1 2 1
+)
+set_tests_properties (${prefix}_can_Equat_One_Root PROPERTIES
+    PASS_REGULAR_EXPRESSION "This equation have one root!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Equat_No_Root
+    COMMAND ${APPLICATION} 2 1 2
+)
+set_tests_properties (${prefix}_can_Equat_No_Root PROPERTIES
+    PASS_REGULAR_EXPRESSION "This equation cannot have real roots!"
+    LABELS "${MODULE}")
