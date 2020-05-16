@@ -3,8 +3,7 @@
 #include "include/Quadratic-equation.h"
 #include "include/Quadratic-equation-app.h"
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 #include <stdint.h>
 #include <string.h>
 #include <string>

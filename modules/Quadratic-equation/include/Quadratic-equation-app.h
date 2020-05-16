@@ -5,6 +5,10 @@
 
 #include <string>
 
+using Arguments = struct {
+    double a, b, c;
+};
+
 class QuadraticEquationApp {
  public:
     QuadraticEquationApp();
@@ -14,11 +18,6 @@ class QuadraticEquationApp {
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
-    typedef struct {
-        double a;
-        double b;
-        double c;
-    } Arguments;
 };
 
 #endif  // MODULES_QUADRATIC_EQUATION_INCLUDE_QUADRATIC_EQUATION_APP_H_
