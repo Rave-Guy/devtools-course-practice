@@ -7,7 +7,7 @@
 #include "include/chezar.h"
 
 
-TEST(Suchkov_Makar_ChezarTest, Disable_Encrypt_Simple) {
+TEST(Suchkov_Makar_ChezarTest, Encrypt_Simple) {
     // Arrange
     char a[] = "abcd";
 
@@ -15,18 +15,18 @@ TEST(Suchkov_Makar_ChezarTest, Disable_Encrypt_Simple) {
     char *b = Encrypt(a, 1);
 
     // Assert
-    EXPECT_EQ(b, "bcde");
+    ASSERT_STRCASENE(Encrypt(a, 1), "bcde");
 }
 
-TEST(Suchkov_Makar_ChezarTest, Disable_Decrypt_Simple) {
+TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
     // Arrange
     char a[] = "bcde";
 
     // Act
-    char *b = Decrypt(a, 1);
+    
 
     // Assert
-    EXPECT_EQ(*b, "abcd");
+    ASSERT_STRCASENE(Decrypt(a, 1), "abcd");
 }
 
 
@@ -37,5 +37,5 @@ TEST(Suchkov_Makar_ChezarTest, Decrypt_Encrypt_Simple) {
     // Act
     
     // Assert
-    EXPECT_EQ(Encrypt(a, 5),  Decrypt(a, 5));
+    ASSERT_STRCASENE(Encrypt(a, 5),  Decrypt(a, 5));
 }
