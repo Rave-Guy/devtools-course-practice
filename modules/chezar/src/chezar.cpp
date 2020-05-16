@@ -3,9 +3,8 @@
 #include "include/chezar.h"
 
 char* Encrypt(char* msg, char key) {
-    char ch;
     for (int i = 0; msg[i] != '\0'; ++i) {
-        ch = msg[i];
+        char ch = msg[i];
         if (ch >= 'a' && ch <= 'z') {
            ch = ch + (key % 26);
            if (ch > 'z') {
@@ -24,9 +23,8 @@ char* Encrypt(char* msg, char key) {
 }
 
 char* Decrypt(char* msg, char key) {
-    char ch;
     for (int i = 0; msg[i] != '\0'; ++i) {
-       ch = msg[i];
+       char ch = msg[i];
        if (ch >= 'a' && ch <= 'z') {
            ch = ch - (key % 26);
            if (ch < 'a') {
