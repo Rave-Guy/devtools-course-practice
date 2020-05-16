@@ -25,7 +25,7 @@ add_test(
     COMMAND ${APPLICATION} 1 2
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 arguments."
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments."
     LABELS "${MODULE}")
 
 add_test(
@@ -38,7 +38,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Equat_Two_Roots
-    COMMAND ${APPLICATION} 1 4 5
+    COMMAND ${APPLICATION} 1 5 4
 )
 set_tests_properties (${prefix}_can_Equat_Two_Roots PROPERTIES
     PASS_REGULAR_EXPRESSION "This equation have two roots!"
