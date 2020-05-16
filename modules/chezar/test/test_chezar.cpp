@@ -16,5 +16,5 @@ TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
 
 TEST(Suchkov_Makar_ChezarTest, Decrypt_Encrypt_Simple) {
     char a[] = "abcdefghijklmnopqrstuvwxyz";
-    ASEEQ(Encrypt(a, 5),  Decrypt(a, 5));
+    ASSERT_STRCASEEQ(Encrypt(a, 5),  Decrypt(a, 5));
 }
