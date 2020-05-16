@@ -2,7 +2,7 @@
 
 #include "include/chezar.h"
 
-char* Encrypt(char* msg, int key)
+char* Encrypt(char* msg, char key)
 {
     char ch;
     for(int i = 0; msg[i] != '\0'; ++i)
@@ -30,7 +30,7 @@ char* Encrypt(char* msg, int key)
     return msg;
 }
 
-char* Decrypt(char* msg, int key)
+char* Decrypt(char* msg, char key)
 {
     char ch;
     for(int i = 0; msg[i] != '\0'; ++i)
