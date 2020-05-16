@@ -12,10 +12,10 @@ char* Encrypt(char* msg, char key) {
               ch = ch - 'z' + 'a' - 1;
            }
            msg[i] = ch;
-       } else if (ch >= 'A' && ch <= 'Z') {
+        } else if (ch >= 'A' && ch <= 'Z') {
            ch = ch + key;
            if (ch > 'Z') {
-              ch = ch - 'Z' + 'A' - 1;
+               ch = ch - 'Z' + 'A' - 1;
            }
            msg[i] = ch;
         }
@@ -31,14 +31,14 @@ char* Decrypt(char* msg, char key) {
            ch = ch - key;
            if (ch < 'a') {
                 ch = ch + 'z' - 'a' + 1;
-            }
-            msg[i] = ch;
-        } else if (ch >= 'A' && ch <= 'Z') {
-          ch = ch - key;
-          if (ch < 'A') {
-             ch = ch + 'Z' - 'A' + 1;
            }
-          msg[i] = ch;
+           msg[i] = ch;
+       } else if (ch >= 'A' && ch <= 'Z') {
+           ch = ch - key;
+           if (ch < 'A') {
+               ch = ch + 'Z' - 'A' + 1;
+           }
+           msg[i] = ch;
        }
     }
     return msg;
