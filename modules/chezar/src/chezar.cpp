@@ -3,7 +3,6 @@
 #include "include/chezar.h"
 
 Chezar::Chezar() {
-
 }
 
 Chezar::Chezar(char *str, int key) {
@@ -12,7 +11,6 @@ Chezar::Chezar(char *str, int key) {
 }
 
 Chezar::~Chezar() {
-
 }
 
 bool Chezar::SetKey(int key) {
