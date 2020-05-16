@@ -2,8 +2,6 @@
 
 #include <gtest/gtest.h>
 
-#include <string>
-
 #include "include/chezar.h"
 
 
@@ -12,7 +10,6 @@ TEST(Suchkov_Makar_ChezarTest, Encrypt_Simple) {
     char a[] = "abcd";
 
     // Act
-    char *b = Encrypt(a, 1);
 
     // Assert
     ASSERT_STRCASEEQ(Encrypt(a, 1), "bcde");
