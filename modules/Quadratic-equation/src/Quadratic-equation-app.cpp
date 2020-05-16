@@ -3,11 +3,11 @@
 #include "include/Quadratic-equation.h"
 #include "include/Quadratic-equation-app.h"
 
-#include <iostream>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <iostream>
 
 QuadraticEquationApp::QuadraticEquationApp() : message_("") {}
 
@@ -20,7 +20,8 @@ void QuadraticEquationApp::help(const char* appname, const char* message) {
 
           "  $ " + appname + " <a> " + "<b> " + "<c>\n\n" +
 
-          "Where all arguments are double-precision numbers\n";
+          "Where all arguments are double-precision numbers\n" +
+          "a != 0\n";
 }
 
 bool QuadraticEquationApp::validateNumberOfArguments(int argc,
