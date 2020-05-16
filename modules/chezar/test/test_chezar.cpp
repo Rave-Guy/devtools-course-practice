@@ -17,9 +17,9 @@ TEST(Suchkov_Makar_ChezarTest, Encrypt_Simple) {
 TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
     // Arrange
     char a[] = "bcde";
-
-    // Act
     
+    // Act
+
     // Assert
     ASSERT_STRCASEEQ(Decrypt(a, 1), "abcd");
 }
@@ -27,9 +27,9 @@ TEST(Suchkov_Makar_ChezarTest, Decrypt_Simple) {
 TEST(Suchkov_Makar_ChezarTest, Decrypt_Encrypt_Simple) {
     // Arrange
     char a[] = "abcdefghijklmnopqrstuvwxyz";
-
-    // Act
     
+    // Act
+
     // Assert
     ASSERT_STRCASEEQ(Encrypt(a, 5),  Decrypt(a, 5));
 }
