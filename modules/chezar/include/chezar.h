@@ -15,8 +15,13 @@ class Chezar {
     bool SetKey(int key);
     int GetKey();
     bool isEncrypt();
+    bool SetCryptStatus(bool status);
     bool Decrypt();
     bool Encrypt();
+    enum Cryptstatus {
+       DECRYPTED = false,
+       ENCRYPTED = true
+    };
  private:
     char* msg = nullptr;
     int key = 0;

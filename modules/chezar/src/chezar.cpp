@@ -35,6 +35,11 @@ int Chezar::GetKey() {
     return key;
 }
 
+bool Chezar::SetCryptStatus (bool status) {
+    is_e = status;
+    return true;
+}
+
 bool Chezar::Encrypt() {
     if (!is_e) {
         char ch = 0;
