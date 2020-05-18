@@ -42,7 +42,7 @@ bool Chezar::SetCryptStatus(bool status) {
 
 bool Chezar::Encrypt() {
     if (!is_e) {
-        char ch = 0;
+        char ch = '\0';
         for (unsigned int i = 0; msg[i] != '\0'; ++i) {
             ch = msg[i];
             if (ch >= 'a' && ch <= 'z') {
@@ -66,7 +66,7 @@ bool Chezar::Encrypt() {
 
 bool Chezar::Decrypt() {
     if (is_e) {
-        char ch = 0;
+        char ch = '\0';
         for (unsigned int i = 0; msg[i] != '\0'; ++i) {
             ch = msg[i];
             if (ch >= 'a' && ch <= 'z') {
