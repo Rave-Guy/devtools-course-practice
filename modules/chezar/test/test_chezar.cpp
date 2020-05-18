@@ -6,13 +6,19 @@
 
 TEST(Suchkov_Makar_ChezarTest, Can_Create) {
     // Arrange
+    // Act
+    Chezar estr;
+    // Assert
+    EXPECT_FALSE(estr.isEncrypt());
+}
+
+TEST(Suchkov_Makar_ChezarTest, Can_With_Arguments_Create) {
+    // Arrange
     char a[] = "abc";
     int key = 1488;
     // Act
-    Chezar estr;
     Chezar estr1(a, key)
     // Assert
-    EXPECT_FALSE(estr.isEncrypt());
     EXPECT_FALSE(estr1.isEncrypt());
 }
 
@@ -21,7 +27,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Add_Key_Data) {
     Chezar estr;
     int key;
     // Act
-    key = 1;
+    key = 9999999;
     // Assert
     EXPECT_TRUE(estr.SetKey(key));
 }
@@ -84,7 +90,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Crypt_Correct_Data) {
     estr.Encrypt();
     char z[] = "defghijklmnopqrstuvwxyzabc";
     // Assert
-    ASSERT_STRCASEEQ(z, estr.GetStr());
+    EXPECT_STRCASEEQ(z, estr.GetStr());
 }
 
 TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Correct_Data) {
@@ -95,5 +101,5 @@ TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Correct_Data) {
     estr.Decrypt();
     char z[] = "abcdefghijklmnopqrstuvwxy";
     // Assert
-    ASSERT_STRCASEEQ(z, estr.GetStr());
+    EXPECT_STRCASEEQ(z, estr.GetStr());
 }
