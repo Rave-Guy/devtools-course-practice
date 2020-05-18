@@ -1,6 +1,6 @@
 # Шрифт Цезаря
 
-Выполнил: Сучков Макар
+Выполнил: Сучков Макар [![Build Status](https://travis-ci.org/Rave-Guy/devtools-course-practice.svg?branch=Suchkov-lab2)](https://travis-ci.org/Rave-Guy/devtools-course-practice)
 
 Раскладка по директориям:
 

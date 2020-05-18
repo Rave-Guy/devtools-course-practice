@@ -35,7 +35,7 @@ int Chezar::GetKey() {
     return key;
 }
 
-bool Chezar::SetCryptStatus (bool status) {
+bool Chezar::SetCryptStatus(bool status) {
     is_e = status;
     return true;
 }
