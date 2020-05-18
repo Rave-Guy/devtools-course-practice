@@ -17,7 +17,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_With_Arguments_Create) {
     char a[] = "abc";
     int key = 1488;
     // Act
-    Chezar estr1(a, key)
+    Chezar estr1(a, key);
     // Assert
     EXPECT_FALSE(estr1.isEncrypt());
 }
