@@ -72,7 +72,7 @@ bool Chezar::Decrypt() {
             msg[i] = ch;
             } else if (ch >= 'A' && ch <= 'Z') {
                 ch = ch - (key % 26);
-                if (ch < 'A') 
+                if (ch < 'A') {
                 ch = ch + 'Z' - 'A' + 1;
                 }
                 msg[i] = ch;
