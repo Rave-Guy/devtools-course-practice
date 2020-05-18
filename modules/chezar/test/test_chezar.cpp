@@ -98,7 +98,7 @@ TEST(Suchkov_Makar_ChezarTest, Can_Decrypt_Correct_Data) {
     char a[] = "ghijklmnopqrstuvwxyzabcde";
     Chezar estr(a, 1488);
     // Act
-    estr.SetCryptStatus(estr.Cryptstatus.ENCRYPTED);
+    estr.SetCryptStatus(estr.ENCRYPTED);
     estr.Decrypt();
     char z[] = "abcdefghijklmnopqrstuvwxy";
     // Assert
