@@ -70,12 +70,13 @@ bool Chezar::Decrypt() {
                     ch = ch + 'z' - 'a' + 1;
                 }
             msg[i] = ch;
-        } else if (ch >= 'A' && ch <= 'Z') {
-            ch = ch - (key % 26);
-            if (ch < 'A') {
+            } else if (ch >= 'A' && ch <= 'Z') {
+                ch = ch - (key % 26);
+                if (ch < 'A') 
                 ch = ch + 'Z' - 'A' + 1;
+                }
+                msg[i] = ch;
             }
-            msg[i] = ch;
         }
     }
     is_e = false;
