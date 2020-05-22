@@ -5,6 +5,7 @@
 
 #include <string>
 #include <sstream>
+#include <stdexcept>
 
 QuadraticEquationApp::QuadraticEquationApp() : message_("") {}
 
