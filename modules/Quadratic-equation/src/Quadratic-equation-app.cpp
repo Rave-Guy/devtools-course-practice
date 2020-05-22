@@ -40,18 +40,13 @@ std::string QuadraticEquationApp::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        if (!(args.a = std::stod(argv[1]))) {
-            throw std::invalid_argument(std::string(argv[1]));
-        }
-        if (!(args.b = std::stod(argv[2]))) {
-            throw std::invalid_argument(std::string(argv[2]));
-        }
-        if (!(args.c = std::stod(argv[3]))) {
-            throw std::invalid_argument(std::string(argv[3]));
-        }
+        args.a = std::stod(argv[1]);
+        args.b = std::stod(argv[2]);
+        args.c = std::stod(argv[3]);
     }
-    catch(...) {
-        throw std::string("Wrong number format!");;
+    catch(std::invalid_argument& arg) {
+        message_ = "Wrong number format!";
+        return message_;
     }
 
     QuadraticEquation equat(args.a, args.b, args.c);
@@ -61,7 +56,7 @@ std::string QuadraticEquationApp::operator()(int argc, const char** argv) {
 
     switch (countRoots) {
      case '0':
-        stream << "This equation cannot have real roots!";
+        stream << "This equation cannot have real roots!\n";
         break;
      case '1':
         stream << "This equation have one root!\n"
