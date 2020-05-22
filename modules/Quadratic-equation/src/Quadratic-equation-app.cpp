@@ -40,13 +40,13 @@ std::string QuadraticEquationApp::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        if(!(args.a = std::stod(argv[1]))) {
+        if (!(args.a = std::stod(argv[1]))) {
             throw std::invalid_argument(std::string(argv[1]));
         }
-        if(!(args.b = std::stod(argv[2]))) {
+        if (!(args.b = std::stod(argv[2]))) {
             throw std::invalid_argument(std::string(argv[2]));
         }
-        if(!(args.c = std::stod(argv[3]))) {
+        if (!(args.c = std::stod(argv[3]))) {
             throw std::invalid_argument(std::string(argv[3]));
         }
     }
