@@ -44,7 +44,7 @@ std::string QuadraticEquationApp::operator()(int argc, const char** argv) {
         args.b = std::stod(argv[2]);
         args.c = std::stod(argv[3]);
     }
-    catch(std::invalid_argument& arg) {
+    catch(std::invalid_argument) {
         message_ = "Wrong number format!";
         return message_;
     }
