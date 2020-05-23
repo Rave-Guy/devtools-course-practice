@@ -1,4 +1,4 @@
-// Copyright 2020 Arisova Anastasiia
+// Copyright 2020 Vedrukov Pavel
 
 #include <gtest/gtest.h>
 
