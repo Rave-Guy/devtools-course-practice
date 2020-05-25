@@ -3,11 +3,10 @@
 #include "include/bitfield.h"
 #include "include/bitfield-app.h"
 
-
 #include <iostream>
 #include <string>
 #include <random>
-
+#include <stdexcept>
 
 Bitfieldapp::Bitfieldapp() : message_("") {}
 
@@ -17,7 +16,7 @@ void Bitfieldapp::help(const char* appname, const char* message) {
           "This is a Bitfield application.\n\n" +
           "Please provide arguments in the following format:\n\n"+
           "  $ " + appname + " <type> <bitfield_size> " +
-          "<position>\n\n" +
+          "<position>\n" +
           "Where all arguments are positive integer numbers, \n" +
           "set <type> to 1 to create bitfield and set" +
           "in <position> flag, " +
@@ -60,10 +59,10 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
         throw std::invalid_argument("Wrong number format!");
     }
 
-
     Bitfield bitf(args.bitfield_size);
     std::random_device rd;
     std::mt19937 mt(rd());
+    int a = mt;
     if (argc == 4) {
         switch (args.type) {
          case 1:
@@ -75,7 +74,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             break;
          case 2:
            for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (mt % 2 == 0) {
+                if (a % 2 == 0) {
                 bitf.set(i);
                 }
             }
@@ -107,7 +106,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             break;
          case 2:
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (mt % 2 == 0) {
+                if (a % 2 == 0) {
                     bitf.set(i);
                 }
             }
@@ -130,7 +129,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
         }
     }
 
-    message_ = std::cout.str();
+    //message_ = std::cout.str();
 
     return message_;
 }
