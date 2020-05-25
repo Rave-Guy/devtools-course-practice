@@ -56,9 +56,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             args.arr[i] = static_cast<unsigned int>(std::stoul(argv[i + 3]));
             }
         }
-    }
-    catch(std::invalid_argument) {
-        return std::string("Wrong number format!");
+        throw std::invalid_argument("Wrong number format!");
     }
 
     Bitfield bitf(args.bitfield_size);
