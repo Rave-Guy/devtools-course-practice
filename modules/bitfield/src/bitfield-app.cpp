@@ -7,6 +7,7 @@
 #include <string>
 #include <random>
 #include <stdexcept>
+#include <sstream>
 
 Bitfieldapp::Bitfieldapp() : message_("") {}
 
@@ -64,14 +65,15 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
     std::mt19937 mt(rd());
     std::uniform_int_distribution<int> dist(1, 9999999);
     int a = dist(mt);
+    std::ostringstream stream;
     if (argc == 4) {
         switch (args.type) {
          case 1:
             bitf.set(args.position);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                std::cout << bitf.get(i) << " ";
+                stream << bitf.get(i) << " ";
             }
-            std::cout << std::endl;
+            stream << std::endl;
             break;
          case 2:
            for (unsigned int i = 0; i < bitf.get_size(); i++) {
@@ -81,29 +83,29 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             }
             bitf.unset(args.position);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                std::cout << bitf.get(i) << " ";
+                stream << bitf.get(i) << " ";
             }
-            std::cout << std::endl;
+            stream << std::endl;
             break;
          case 3:
             bitf.fill();
             bitf.unset(args.position);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                std::cout << bitf.get(i) << " ";
+                stream << bitf.get(i) << " ";
             }
-            std::cout << std::endl;
+            stream << std::endl;
             break;
          default:
-           std::cout << "ERROR: unknow operation" << std::endl;
+           stream << "ERROR: unknow operation" << std::endl;
         }
     } else if (argc > 4) {
         switch (args.type) {
          case 1:
             bitf.set(args.arr);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                std::cout << bitf.get(i) << " ";
+                stream << bitf.get(i) << " ";
             }
-            std::cout << std::endl;
+            stream << std::endl;
             break;
          case 2:
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
@@ -113,24 +115,24 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             }
             bitf.unset(args.arr);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                std::cout << bitf.get(i) << " ";
+                stream << bitf.get(i) << " ";
             }
-            std::cout << std::endl;
+            stream << std::endl;
             break;
          case 3:
             bitf.fill();
             bitf.unset(args.arr);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                std::cout << bitf.get(i) << " ";
+                stream << bitf.get(i) << " ";
             }
-            std::cout << std::endl;
+            stream << std::endl;
             break;
          default:
-            std::cout << "ERROR: unknow operation" << std::endl;
+            stream << "ERROR: unknow operation" << std::endl;
         }
     }
 
-    // message_ = std::cout.str();
+    message_ = stream.str();
 
     return message_;
 }
