@@ -60,21 +60,5 @@ TEST_F(BitfieldappTest, Is_Checking_Type_Of_Arguments) {
 
     Act(args);
 
-    Assert("Wrong number format!");
-}
-
-TEST_F(BitfieldappTest, Can_One_Bitfield) {
-    vector<string> args = {"1", "10", "3"};
-
-    Act(args);
-
-    Assert("0 0 0 1 0 0 0 0 0 0");
-}
-
-TEST_F(BitfieldappTest, Can_Three_Bitfield) {
-    vector<string> args = {"3", "10", "6"};
-
-    Act(args);
-
-    Assert("1 1 1 1 1 1 0 1 1 1");
+    Assert("C++ exception with description \"Wrong number format!\" thrown in the test body.");
 }
