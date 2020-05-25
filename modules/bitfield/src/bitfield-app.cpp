@@ -56,8 +56,10 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             args.arr[i] = static_cast<unsigned int>(std::stoul(argv[i + 3]));
             }
         }
+    } catch (std::exception & e) {
         throw std::invalid_argument("Wrong number format!");
     }
+
 
     Bitfield bitf(args.bitfield_size);
     std::random_device rd;
