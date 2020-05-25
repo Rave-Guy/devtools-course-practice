@@ -62,7 +62,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
     Bitfield bitf(args.bitfield_size);
     std::random_device rd;
     std::default_random_engine generator(rd);
-    int a = generator;
+    int a = static_cast<int>(generator);
     if (argc == 4) {
         switch (args.type) {
          case 1:
