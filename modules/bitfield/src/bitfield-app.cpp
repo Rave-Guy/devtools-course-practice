@@ -47,7 +47,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.type = parseInt(argv[1]);
+        args.type = static_cast<unsigned int>(std::stoul(argv[1]));
         args.bitfield_size = static_cast<unsigned int>(std::stoul(argv[2]));
         if (argc == 4) {
             args.position = static_cast<unsigned int>(std::stoul(argv[3]));
