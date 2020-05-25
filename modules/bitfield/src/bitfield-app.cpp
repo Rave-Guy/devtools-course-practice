@@ -5,11 +5,8 @@
 
 
 #include <iostream>
-#include <cstdlib>
 #include <string>
-#include <cstring>
-#include <sstream>
-#include <ctime>
+#include <random>
 
 
 Bitfieldapp::Bitfieldapp() : message_("") {}
@@ -43,17 +40,6 @@ bool Bitfieldapp::validateNumberOfArguments(int argc, const char** argv) {
     return true;
 }
 
-unsigned int Bitfieldapp::parseInt(const char* arg) {
-    char* end;
-    unsigned int value = static_cast<unsigned int>(std::strtol(arg, &end, 0));
-
-    if (end[0]) {
-        throw std::string("Wrong number format!");
-    }
-
-    return value;
-}
-
 std::string Bitfieldapp::operator()(int argc, const char** argv) {
     Arguments args;
 
@@ -62,90 +48,89 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
     }
     try {
         args.type = parseInt(argv[1]);
-        args.bitfield_size = parseInt(argv[2]);
+        args.bitfield_size = static_cast<unsigned int>(std::stoul(argv[2]));
         if (argc == 4) {
-            args.position = parseInt(argv[3]);
+            args.position = static_cast<unsigned int>(std::stoul(argv[3]);
         } else {
             for (int i = 0; i < argc - 3; i++) {
-            args.arr[i] = parseInt(argv[i + 3]);
+            args.arr[i] = static_cast<unsigned int>(std::stoul(argv[i + 3]));
             }
         }
     }
-    catch(std::string& str) {
-        return str;
+    catch(std::invalid_argument) {
+        return std::string("Wrong number format!");
     }
 
     Bitfield bitf(args.bitfield_size);
-    std::ostringstream stream;
+    std::random_device rd;
+    std::mt19937 mt(rd());
     if (argc == 4) {
         switch (args.type) {
          case 1:
             bitf.set(args.position);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                stream << bitf.get(i) << " ";
+                std::cout << bitf.get(i) << " ";
             }
-            stream << std::endl;
+            std::cout << std::endl;
             break;
          case 2:
-           std::srand(unsigned(std::time(0)));
            for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (std::rand() % 2 == 0) {
+                if (mt % 2 == 0) {
                 bitf.set(i);
                 }
             }
             bitf.unset(args.position);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                stream << bitf.get(i) << " ";
+                std::cout << bitf.get(i) << " ";
             }
-            stream << std::endl;
+            std::cout << std::endl;
             break;
          case 3:
             bitf.fill();
             bitf.unset(args.position);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                stream << bitf.get(i) << " ";
+                std::cout << bitf.get(i) << " ";
             }
-            stream << std::endl;
+            std::cout << std::endl;
             break;
          default:
-           stream << "ERROR: unknow operation" << std::endl;
+           std::cout << "ERROR: unknow operation" << std::endl;
         }
     } else if (argc > 4) {
         switch (args.type) {
          case 1:
             bitf.set(args.arr);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                stream << bitf.get(i) << " ";
+                std::cout << bitf.get(i) << " ";
             }
-            stream << std::endl;
+            std::cout << std::endl;
             break;
          case 2:
-            std::srand(unsigned(std::time(0)));
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (std::rand() % 4 == 0) {
+                if (mt % 2 == 0) {
                     bitf.set(i);
                 }
             }
             bitf.unset(args.arr);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                stream << bitf.get(i) << " ";
+                std::cout << bitf.get(i) << " ";
             }
-            stream << std::endl;
+            std::cout << std::endl;
             break;
          case 3:
             bitf.fill();
             bitf.unset(args.arr);
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                stream << bitf.get(i) << " ";
+                std::cout << bitf.get(i) << " ";
             }
-            stream << std::endl;
+            std::cout << std::endl;
             break;
          default:
-            stream << "ERROR: unknow operation" << std::endl;
+            std::cout << "ERROR: unknow operation" << std::endl;
         }
     }
 
-    message_ = stream.str();
+    message_ = std::cout.str();
 
     return message_;
 }

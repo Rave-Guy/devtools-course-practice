@@ -8,6 +8,6 @@
 int main(int argc, const char** argv) {
     Bitfieldapp app;
     std::string output = app(argc, argv);
-    std::cout << output.c_str();
+    std::cout << output;
     return 0;
 }

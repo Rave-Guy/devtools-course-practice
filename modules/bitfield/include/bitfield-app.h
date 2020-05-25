@@ -14,7 +14,6 @@ class Bitfieldapp {
  private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
-    unsigned int parseInt(const char* arg);
     std::string message_;
     using Arguments = struct {
         unsigned int bitfield_size;
