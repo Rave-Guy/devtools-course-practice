@@ -50,7 +50,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
         args.type = parseInt(argv[1]);
         args.bitfield_size = static_cast<unsigned int>(std::stoul(argv[2]));
         if (argc == 4) {
-            args.position = static_cast<unsigned int>(std::stoul(argv[3]);
+            args.position = static_cast<unsigned int>(std::stoul(argv[3]));
         } else {
             for (int i = 0; i < argc - 3; i++) {
             args.arr[i] = static_cast<unsigned int>(std::stoul(argv[i + 3]));
