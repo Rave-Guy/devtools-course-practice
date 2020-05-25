@@ -62,7 +62,8 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
     Bitfield bitf(args.bitfield_size);
     std::random_device rd;
     std::mt19937 mt(rd());
-    int a = mt;
+    std::uniform_real_distribution<int> dist(1, 100)
+    int a = dist(mt);
     if (argc == 4) {
         switch (args.type) {
          case 1:
@@ -129,7 +130,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
         }
     }
 
-    //message_ = std::cout.str();
+    // message_ = std::cout.str();
 
     return message_;
 }
