@@ -31,10 +31,6 @@ add_test(
     NAME ${prefix}_can_Check_Type_Of_Arguments
     COMMAND ${APPLICATION} 1 c c
 )
-set_tests_properties (${prefix}_can_Check_Type_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "terminate called after throwing an instance of 'std::invalid_argument' what():  Wrong number format!"
-    LABELS "${MODULE}")
-
 add_test(
     NAME ${prefix}_Can_One_Bitfield
     COMMAND ${APPLICATION} 1 10 3

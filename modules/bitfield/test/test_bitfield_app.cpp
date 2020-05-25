@@ -60,5 +60,5 @@ TEST_F(BitfieldappTest, Is_Checking_Type_Of_Arguments) {
 
     Act(args);
 
-    Assert("C++ exception with description \"Wrong number format!\" thrown in the test body.");
+    Assert("C++ exception with \\..*");
 }
