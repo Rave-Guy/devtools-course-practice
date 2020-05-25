@@ -55,10 +55,18 @@ TEST_F(BitfieldappTest, Is_Checking_Number_Of_Arguments) {
     Assert("ERROR: Should be three arguments\\..*");
 }
 
-TEST_F(BitfieldappTest, Is_Checking_Type_Of_Arguments) {
-    vector<string> args = {"1", "c", "c"};
+TEST_F(BitfieldappTest, Can_One_Bitfield) {
+    vector<string> args = {"1", "10", "3"};
 
     Act(args);
 
-    Assert("C++ exception with \\..*");
+    Assert("0 0 0 1 0 0 0 0 0 0");
+}
+
+TEST_F(BitfieldappTest, Can_Three_Bitfield) {
+    vector<string> args = {"3", "10", "6"};
+
+    Act(args);
+
+    Assert("1 1 1 1 1 1 0 1 1 1");
 }

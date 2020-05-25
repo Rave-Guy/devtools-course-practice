@@ -28,10 +28,6 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Type_Of_Arguments
-    COMMAND ${APPLICATION} 1 c c
-)
-add_test(
     NAME ${prefix}_Can_One_Bitfield
     COMMAND ${APPLICATION} 1 10 3
 )
@@ -42,6 +38,10 @@ set_tests_properties (${prefix}_Can_One_Bitfield PROPERTIES
 add_test(
     NAME ${prefix}_Can_Two_Bitfield
     COMMAND ${APPLICATION} 2 10 4
+)
+add_test(
+    NAME ${prefix}_Can_Two_Bitfield_Again
+    COMMAND ${APPLICATION} 2 15 7
 )
 add_test(
     NAME ${prefix}_Can_Three_Bitfield
