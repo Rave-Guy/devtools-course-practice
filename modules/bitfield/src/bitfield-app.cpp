@@ -3,7 +3,6 @@
 #include "include/bitfield.h"
 #include "include/bitfield-app.h"
 
-#include <iostream>
 #include <string>
 #include <random>
 #include <stdexcept>
@@ -56,15 +55,17 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             args.arr[i] = static_cast<unsigned int>(std::stoul(argv[i + 3]));
             }
         }
-    } catch (std::exception & e) {
-        throw std::invalid_argument("Wrong number format!");
+        
+    } catch (std::string &str) {
+        return str;
+    } catch (std::invalid_argument) {
+        return std::string("Wrong number format!");
     }
 
     Bitfield bitf(args.bitfield_size);
     std::random_device rd;
     std::mt19937 mt(rd());
     std::uniform_int_distribution<int> dist(1, 9999999);
-    int a = dist(mt);
     std::ostringstream stream;
     if (argc == 4) {
         switch (args.type) {
@@ -77,7 +78,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             break;
          case 2:
            for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (a % 2 == 0) {
+                if (dist(mt) % 2 == 0) {
                 bitf.set(i);
                 }
             }
@@ -96,7 +97,9 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             stream << std::endl;
             break;
          default:
-           stream << "ERROR: unknow operation" << std::endl;
+           help(argv[0], "ERROR: unknow operation " + 
+           "Operation type arguments is integer number " +
+           "There are 1, 2, 3. No more \n\n");
         }
     } else if (argc > 4) {
         switch (args.type) {
@@ -109,7 +112,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             break;
          case 2:
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (a % 2 == 0) {
+                if (dist(mt) % 2 == 0) {
                     bitf.set(i);
                 }
             }
@@ -128,7 +131,9 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             stream << std::endl;
             break;
          default:
-            stream << "ERROR: unknow operation" << std::endl;
+            help(argv[0], "ERROR: unknow operation " + 
+           "Operation type arguments is integer number " +
+           "There are 1, 2, 3. No more \n\n");
         }
     }
 

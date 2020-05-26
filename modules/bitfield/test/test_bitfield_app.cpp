@@ -55,6 +55,14 @@ TEST_F(BitfieldappTest, Is_Checking_Number_Of_Arguments) {
     Assert("ERROR: Should be three arguments\\..*");
 }
 
+TEST_F(BitfieldappTest, Is_Checking_Number_Of_Arguments) {
+    vector<string> args = {"1", "c", "c"};
+
+    Act(args);
+
+    Assert("Wrong number format!*");
+}
+
 TEST_F(BitfieldappTest, Can_One_Bitfield) {
     vector<string> args = {"1", "10", "3"};
 
