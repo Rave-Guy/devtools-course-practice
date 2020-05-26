@@ -55,7 +55,6 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             args.arr[i] = static_cast<unsigned int>(std::stoul(argv[i + 3]));
             }
         }
-        
     } catch (std::string &str) {
         return str;
     } catch (std::invalid_argument) {
@@ -78,7 +77,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             break;
          case 2:
            for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (dist(mt) % 2 == 0) {
+                if (dist(mt); % 2 == 0) {
                 bitf.set(i);
                 }
             }
@@ -97,9 +96,9 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             stream << std::endl;
             break;
          default:
-           help(argv[0], "ERROR: unknow operation " + 
-           "Operation type arguments is integer number " +
-           "There are 1, 2, 3. No more \n\n");
+           stream << "ERROR: unknow operation " <<
+           "Operation type arguments is integer number " <<
+            "There are 1, 2, 3. No more \n\n" << std::endl;
         }
     } else if (argc > 4) {
         switch (args.type) {
@@ -112,7 +111,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             break;
          case 2:
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (dist(mt) % 2 == 0) {
+                if (dist(mt); % 2 == 0) {
                     bitf.set(i);
                 }
             }
@@ -131,9 +130,9 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             stream << std::endl;
             break;
          default:
-            help(argv[0], "ERROR: unknow operation " + 
-           "Operation type arguments is integer number " +
-           "There are 1, 2, 3. No more \n\n");
+            stream << "ERROR: unknow operation " << 
+            "Operation type arguments is integer number " <<
+            "There are 1, 2, 3. No more \n\n" << std::endl;
         }
     }
 
