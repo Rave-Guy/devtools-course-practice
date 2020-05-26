@@ -77,7 +77,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             break;
          case 2:
            for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (dist(mt); % 2 == 0) {
+                if (dist(mt) % 2 == 0) {
                 bitf.set(i);
                 }
             }
@@ -111,7 +111,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             break;
          case 2:
             for (unsigned int i = 0; i < bitf.get_size(); i++) {
-                if (dist(mt); % 2 == 0) {
+                if (dist(mt) % 2 == 0) {
                     bitf.set(i);
                 }
             }
@@ -130,7 +130,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             stream << std::endl;
             break;
          default:
-            stream << "ERROR: unknow operation " << 
+            stream << "ERROR: unknow operation " <<
             "Operation type arguments is integer number " <<
             "There are 1, 2, 3. No more \n\n" << std::endl;
         }
