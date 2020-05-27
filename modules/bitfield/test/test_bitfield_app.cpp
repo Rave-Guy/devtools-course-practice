@@ -60,7 +60,7 @@ TEST_F(BitfieldappTest, Is_Checking_Type_Of_Arguments) {
 
     Act(args);
 
-    Assert("Wrong number format!");
+    Assert("ERROR: Wrong number format!");
 }
 
 TEST_F(BitfieldappTest, Can_One_Bitfield) {

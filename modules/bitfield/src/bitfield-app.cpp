@@ -45,6 +45,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
+    
     try {
         args.type = static_cast<unsigned int>(std::stoul(argv[1]));
         args.bitfield_size = static_cast<unsigned int>(std::stoul(argv[2]));
@@ -55,10 +56,8 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
             args.arr[i] = static_cast<unsigned int>(std::stoul(argv[i + 3]));
             }
         }
-    } catch (std::string &str) {
-        return str;
     } catch (std::invalid_argument) {
-        return std::string("Wrong number format!");
+        return std::string("ERROR: Wrong number format!");
     }
 
     Bitfield bitf(args.bitfield_size);
@@ -66,6 +65,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
     std::mt19937 mt(rd());
     std::uniform_int_distribution<int> dist(1, 9999999);
     std::ostringstream stream;
+
     if (argc == 4) {
         switch (args.type) {
          case 1:
