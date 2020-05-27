@@ -45,7 +45,7 @@ std::string Bitfieldapp::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
-    
+
     try {
         args.type = static_cast<unsigned int>(std::stoul(argv[1]));
         args.bitfield_size = static_cast<unsigned int>(std::stoul(argv[2]));
